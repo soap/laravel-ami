@@ -1,4 +1,4 @@
-# Asterisk Manager Interface integration Laravel package
+# Laravel-Ami
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/soap/laravel-ami.svg?style=flat-square)](https://packagist.org/packages/soap/laravel-ami)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/soap/laravel-ami/run-tests?label=tests)](https://github.com/soap/laravel-ami/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -7,6 +7,7 @@
 
 ---
 
+Laravel-Ami provides Asterisk interface for laravel via Asterisk Manager Interface.
 
 ## Installation
 
