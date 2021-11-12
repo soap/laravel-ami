@@ -2,9 +2,9 @@
 
 namespace Soap\Ami;
 
+use Soap\Ami\Commands\AmiCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Soap\Ami\Commands\AmiCommand;
 
 class AmiServiceProvider extends PackageServiceProvider
 {
