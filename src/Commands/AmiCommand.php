@@ -6,9 +6,9 @@ use Illuminate\Console\Command;
 
 class AmiCommand extends Command
 {
-    public $signature = 'laravel-ami';
+    public $signature = 'ami:cli';
 
-    public $description = 'My command';
+    public $description = 'Send one command to Asterisk and exit';
 
     public function handle(): int
     {
