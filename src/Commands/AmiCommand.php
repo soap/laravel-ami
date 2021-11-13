@@ -4,6 +4,10 @@ namespace Soap\Ami\Commands;
 
 use Illuminate\Console\Command;
 use React\EventLoop\Loop;
+use Clue\React\Ami\Factory;
+use Clue\React\Ami\Client;
+use Clue\React\Ami\ActionSender;
+use Clue\React\Ami\Protocol\Response;
 
 class AmiCommand extends Command
 {
@@ -21,15 +25,15 @@ class AmiCommand extends Command
 
     protected function startProcess()
     {
-        $factory = new Clue\React\Ami\Factory();
+        $factory = new Factory();
 
-        $factory->createClient($this->argurments('uri'))->then(function (Clue\React\Ami\Client $client) {
+        $factory->createClient($this->argurments('uri'))->then(function (Client $client) {
             echo 'Client connected. Use STDIN to send CLI commands via asterisk AMI.' . PHP_EOL;
-            $sender = new Clue\React\Ami\ActionSender($client);
+            $sender = new ActionSender($client);
 
             $sender->events(false);
 
-            $sender->listCommands()->then(function (Clue\React\Ami\Protocol\Response $response) {
+            $sender->listCommands()->then(function (Response $response) {
                 echo 'Commands: ' . implode(', ', array_keys($response->getFields())) . PHP_EOL;
             });
 
@@ -46,7 +50,7 @@ class AmiCommand extends Command
                 echo '<' . $line . PHP_EOL;
 
                 $sender->command($line)->then(
-                    function (Clue\React\Ami\Protocol\Response $response) {
+                    function (Response $response) {
                         echo $response->getCommandOutput() . PHP_EOL;
                     },
                     function (Exception $error) use ($line) {
