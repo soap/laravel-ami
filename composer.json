@@ -4,6 +4,10 @@
     "keywords": [
         "soap",
         "laravel",
+        "framework",
+        "asterisk",
+        "manager", 
+        "interface",
         "laravel-ami"
     ],
     "homepage": "https://github.com/soap/laravel-ami",
