@@ -19,7 +19,7 @@ class AmiCommand extends Command
         return self::SUCCESS;
     }
 
-    protected function startProcess($uri)
+    protected function startProcess()
     {
         $factory = new Clue\React\Ami\Factory();
 
