@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 
 class AmiCommand extends Command
 {
-    public $signature = 'ami:cli {uri} {command}';
+    public $signature = 'ami:cli {uri} {action}';
 
     public $description = 'Send one command to Asterisk and exit';
 
