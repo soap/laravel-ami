@@ -27,7 +27,7 @@ class AmiCommand extends Command
     {
         $factory = new Factory();
 
-        $factory->createClient($this->argurments('uri'))->then(function (Client $client) {
+        $factory->createClient($this->arguments('uri'))->then(function (Client $client) {
             echo 'Client connected. Use STDIN to send CLI commands via asterisk AMI.' . PHP_EOL;
             $sender = new ActionSender($client);
 
