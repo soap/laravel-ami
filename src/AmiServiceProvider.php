@@ -2,7 +2,7 @@
 
 namespace Soap\Ami;
 
-use Soap\Ami\Commands\AmiCommand;
+use Soap\Ami\Commands\AmiCliCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -19,6 +19,6 @@ class AmiServiceProvider extends PackageServiceProvider
             ->name('laravel-ami')
             ->hasConfigFile()
             ->hasViews()
-            ->hasCommand(AmiCommand::class);
+            ->hasCommand(AmiCliCommand::class);
     }
 }
