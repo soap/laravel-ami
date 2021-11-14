@@ -2,12 +2,11 @@
 
 namespace Soap\Ami\Commands;
 
-use Illuminate\Console\Command;
-use React\EventLoop\Loop;
-use Clue\React\Ami\Factory;
-use Clue\React\Ami\Client;
 use Clue\React\Ami\ActionSender;
+use Clue\React\Ami\Client;
+use Clue\React\Ami\Factory;
 use Clue\React\Ami\Protocol\Response;
+use Illuminate\Console\Command;
 
 class AmiCliCommand extends Command
 {
@@ -32,14 +31,14 @@ class AmiCliCommand extends Command
     public function handle(): int
     {
         $this->startProcess();
-        
+
         return self::SUCCESS;
     }
 
     protected function startProcess()
     {
         $factory = new Factory();
-        
+
 
         $factory->createClient($this->argument('uri'))->then(function (Client $client) {
             $this->info('Client connected.');
@@ -50,12 +49,11 @@ class AmiCliCommand extends Command
 
             $client->on('close', function () {
                 $this->info('Connection closed');
-
             });
             $command = $this->argument('cli');
             $this->info("Try command " . $command . " ....");
             $sender->command($command)->then(
-                function (Response $response) use ($client){
+                function (Response $response) use ($client) {
                     $this->info($response->getCommandOutput());
                     $client->end();
                 },
