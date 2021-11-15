@@ -7,7 +7,7 @@
 [![Total Downloads](http://poser.pugx.org/soap/laravel-ami/downloads)](https://packagist.org/packages/soap/laravel-ami)
 ---
 
-Laravel-Ami provides Asterisk interface for laravel via Asterisk Manager Interface.
+Laravel-Ami provides Asterisk interface for laravel via Asterisk Manager Interface. I develop this package to use in my virtual PBX and contact center application. So use cases come from my application. Any discussion on features are welcome.
 
 ## Installation
 
