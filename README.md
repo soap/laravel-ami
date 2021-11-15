@@ -1,10 +1,9 @@
 # Laravel-Ami
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/soap/laravel-ami.svg?style=flat-square)](https://packagist.org/packages/soap/laravel-ami)
+[![Latest Stable Version](http://poser.pugx.org/soap/laravel-ami/v)](https://packagist.org/packages/soap/laravel-ami)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/soap/laravel-ami/run-tests?label=tests)](https://github.com/soap/laravel-ami/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/soap/laravel-ami/Check%20&%20fix%20styling?label=code%20style)](https://github.com/soap/laravel-ami/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/soap/laravel-ami.svg?style=flat-square)](https://packagist.org/packages/soap/laravel-ami)
-
+[![Total Downloads](http://poser.pugx.org/soap/laravel-ami/downloads)](https://packagist.org/packages/soap/laravel-ami)
 ---
 
 Laravel-Ami provides Asterisk interface for laravel via Asterisk Manager Interface.
