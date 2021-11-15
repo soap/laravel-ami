@@ -7,7 +7,13 @@ use Clue\React\Ami\Client;
 use Clue\React\Ami\Factory;
 use Clue\React\Ami\Protocol\Response;
 use Illuminate\Console\Command;
+use Symfony\Component\Console\Exception\InvalidArgumentException;
+use Illuminate\Contracts\Container\BindingResolutionException;
 
+/**
+ * 
+ * @package Soap\Ami\Commands
+ */
 class AmiCliCommand extends Command
 {
     /**
@@ -16,8 +22,8 @@ class AmiCliCommand extends Command
     * @var string
     */
     protected $signature = 'ami:cli
-                    {uri : Asterisk ami url in form of user:secret@host:port }
                     {cli : Command}
+                    {--uri= : Asterisk ami url in form of user:secret@host:port }
                     {--autoclose : Close after call command}
                 ';
 
@@ -28,6 +34,12 @@ class AmiCliCommand extends Command
     */
     protected $description = 'Send command from asterisk ami cli';
 
+    /**
+     * 
+     * @return int 
+     * @throws InvalidArgumentException 
+     * @throws BindingResolutionException 
+     */
     public function handle(): int
     {
         $this->startProcess();
@@ -35,12 +47,19 @@ class AmiCliCommand extends Command
         return self::SUCCESS;
     }
 
+    /**
+     * 
+     * @return void 
+     * @throws InvalidArgumentException 
+     * @throws BindingResolutionException 
+     */
     protected function startProcess()
     {
         $factory = new Factory();
 
+        $uri = $this->option('uri') ? $this->option('uri') : config('ami.connections.default.uri');
 
-        $factory->createClient($this->argument('uri'))->then(function (Client $client) {
+        $factory->createClient($uri)->then(function (Client $client) {
             $this->info('Client connected.');
             $this->info('Press Ctrl + C to exit.');
             $sender = new ActionSender($client);
@@ -50,7 +69,9 @@ class AmiCliCommand extends Command
             $client->on('close', function () {
                 $this->info('Connection closed');
             });
+            
             $command = $this->argument('cli');
+            
             $this->info("Try command " . $command . " ....");
             $sender->command($command)->then(
                 function (Response $response) use ($client) {
@@ -62,7 +83,7 @@ class AmiCliCommand extends Command
                 }
             );
         }, function (Exception $error) {
-            echo 'Connection error: ' . $error;
+            $this->error('Connection error: ' . $error);
         });
     }
 }

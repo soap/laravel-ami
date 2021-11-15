@@ -2,8 +2,7 @@
 
 return [
     'connections' => [
-
-        "ami" => [
+        "default" => [
             "uri" => "soap:scorer1234@192.168.1.58:5038",
         ]
     ]
