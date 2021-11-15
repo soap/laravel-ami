@@ -7,11 +7,11 @@ use Clue\React\Ami\Client;
 use Clue\React\Ami\Factory;
 use Clue\React\Ami\Protocol\Response;
 use Illuminate\Console\Command;
-use Symfony\Component\Console\Exception\InvalidArgumentException;
 use Illuminate\Contracts\Container\BindingResolutionException;
+use Symfony\Component\Console\Exception\InvalidArgumentException;
 
 /**
- * 
+ *
  * @package Soap\Ami\Commands
  */
 class AmiCliCommand extends Command
@@ -35,10 +35,10 @@ class AmiCliCommand extends Command
     protected $description = 'Send command from asterisk ami cli';
 
     /**
-     * 
-     * @return int 
-     * @throws InvalidArgumentException 
-     * @throws BindingResolutionException 
+     *
+     * @return int
+     * @throws InvalidArgumentException
+     * @throws BindingResolutionException
      */
     public function handle(): int
     {
@@ -48,10 +48,10 @@ class AmiCliCommand extends Command
     }
 
     /**
-     * 
-     * @return void 
-     * @throws InvalidArgumentException 
-     * @throws BindingResolutionException 
+     *
+     * @return void
+     * @throws InvalidArgumentException
+     * @throws BindingResolutionException
      */
     protected function startProcess()
     {
@@ -69,9 +69,9 @@ class AmiCliCommand extends Command
             $client->on('close', function () {
                 $this->info('Connection closed');
             });
-            
+
             $command = $this->argument('cli');
-            
+
             $this->info("Try command " . $command . " ....");
             $sender->command($command)->then(
                 function (Response $response) use ($client) {
