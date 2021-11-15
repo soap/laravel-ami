@@ -29,16 +29,22 @@ This is the contents of the published config file:
 
 ```php
 return [
-
+    'connections' => [
+        'default' => [
+            'uri' => 'user:secret@host:port',
+        ]
+    ]
 ];
 ```
 
 ## Usage
 
+Atisan Command 
 ```php
-$laravel-ami = new Soap\Ami();
+php artisan ami:cli "pjsip show aors"
 
 ```
+Above cli command use default uri provided in app/config/ami.php. You can override it with --uri user:secret@host:port.
 
 ## Testing
 
