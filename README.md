@@ -3,7 +3,7 @@
 [![Latest Stable Version](http://poser.pugx.org/soap/laravel-ami/v)](https://packagist.org/packages/soap/laravel-ami)
 [![Latest Unstable Version](http://poser.pugx.org/soap/laravel-ami/v/unstable)](https://packagist.org/packages/soap/laravel-ami)
 [![run-tests](https://github.com/soap/laravel-ami/actions/workflows/run-tests.yml/badge.svg)](https://github.com/soap/laravel-ami/actions/workflows/run-tests.yml)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/soap/laravel-ami/Check%20&%20fix%20styling?label=code%20style)](https://github.com/soap/laravel-ami/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
+[![Check & fix styling](https://github.com/soap/laravel-ami/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/soap/laravel-ami/actions/workflows/php-cs-fixer.yml)
 [![Total Downloads](http://poser.pugx.org/soap/laravel-ami/downloads)](https://packagist.org/packages/soap/laravel-ami)
 ---
 
