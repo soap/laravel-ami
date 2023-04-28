@@ -55,7 +55,8 @@ class AmiCliCommand extends Command
      */
     protected function startProcess()
     {
-        $factory = new Factory();
+        $loop = \React\EventLoop\Factory::create();
+        $factory = new Factory($loop);
 
         $uri = $this->option('uri') ? $this->option('uri') : config('ami.connections.default.uri');
 
